@@ -1,0 +1,3 @@
+-organize.js
+-write tutorials
+-deploy to live nextjs site
