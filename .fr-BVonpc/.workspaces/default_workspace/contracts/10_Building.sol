@@ -6,11 +6,13 @@ interface Elevator {
 }
 
 contract Building {
+    bool flip;
+    constructor(address $your_ethernaut_address_here) {
+        Elevator elevator = Elevator($your_ethernaut_address_here);
+        flip = true;
+    }
 
-    Elevator elevator = Elevator(0x39216A762F69e3bc924246695F57fB7E35a86576);
-    bool flip = true;
-
-    function win() public {
+    function imATop() public {
         elevator.goTo(69);
     }
 

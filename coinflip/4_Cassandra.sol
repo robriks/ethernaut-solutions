@@ -7,7 +7,9 @@ interface CoinFlip {
 }
 
 contract Cassandra {
-    CoinFlip coinFlip = CoinFlip(0xac90a01BAAb137e6797F7eCc8Fe8bd1dbbb0bbe8);
+    constructor(address $your_ethernaut_instance_here) {
+        CoinFlip coinFlip = CoinFlip($your_ethernaut_instance_here);
+    }
 
     function predict() public {
         uint256 factor = 57896044618658097711785492504343953926634992332820282019728792003956564819968;

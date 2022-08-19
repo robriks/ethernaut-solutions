@@ -1,4 +1,4 @@
-object "42" {
+object "contract" {
     code {
         // deploy the contract
         datacopy(0, dataoffset("runtime"), datasize("runtime"))
