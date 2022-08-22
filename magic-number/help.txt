@@ -1,6 +1,14 @@
 Check out:
 
+The most helpful articles on Solidity -> Yul -> bytecode and EVM opcodes I've read are below:
+
 Yul vs Solidity Contract Comparison
 by jtriley.eth
 
 https://medium.com/@jtriley15/yul-vs-solidity-contract-comparison-2b6d9e9dc833
+
+
+Deconstructing a Solidity Contract — Part II: Creation vs. Runtime
+by Alejandro Santander and Leo Arias
+
+https://blog.openzeppelin.com/deconstructing-a-solidity-contract-part-ii-creation-vs-runtime-6b9d60ecb44c/

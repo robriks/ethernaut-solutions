@@ -7,12 +7,8 @@ object "contract" {
 
     object "runtime" {
         code {
-            returnUint(42)
-
-            function returnUint(allah) {
-                mstore(0, allah)
-                return(0, 0x20)
-            }
+            // mstore(0x40, 0x2a)
+            // return(0x40, 0x20)
         }
     }
 }
