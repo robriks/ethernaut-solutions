@@ -7,8 +7,8 @@ object "contract" {
 
     object "runtime" {
         code {
-            // mstore(0x40, 0x2a)
-            // return(0x40, 0x20)
+            mstore(0x40, 0x2a)
+            return(0x40, 0x20)
         }
     }
 }
