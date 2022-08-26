@@ -23,7 +23,8 @@ tried to write a fallback that would execute even with incoming price() call. ha
     //     }
     // }
 
-tried using a library as view functions are no longer blocked by STATICCALL but a simple DELEGATECALL (with diamond store pattern should work in theory, but still got view restriction issues)
+tried using a library as view functions are no longer blocked by STATICCALL but a simple DELEGATECALL (with diamond store pattern it should work in theory, but still got view restriction issues)
+>see LibraryAttempt.sol for more information
 
 struct Juke {
     uint heisenberg;
