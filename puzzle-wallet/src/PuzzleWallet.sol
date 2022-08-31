@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/proxy/UpgradeableProxy.sol";
+import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
+import "openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
-contract PuzzleProxy is UpgradeableProxy {
+contract PuzzleProxy is ERC1967Proxy {
     address public pendingAdmin;
     address public admin;
 
-    constructor(address _admin, address _implementation, bytes memory _initData) UpgradeableProxy(_implementation, _initData) public {
+    constructor(address _admin, address _implementation, bytes memory _initData) ERC1967Proxy(_implementation, _initData)  {
         admin = _admin;
     }
 
@@ -22,7 +22,7 @@ contract PuzzleProxy is UpgradeableProxy {
         pendingAdmin = _newAdmin;
     }
 
-    function approveNewAdmin(address _expectedAdmin) external onlyAdmin {
+    function approveNewAdmin(address _expectedAdmin) external {
         require(pendingAdmin == _expectedAdmin, "Expected new admin by the current admin is not the pending admin");
         admin = pendingAdmin;
     }
