@@ -1,0 +1,60 @@
+{
+  "compiler": {
+    "version": "0.6.12+commit.27d51765"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [],
+    "devdoc": {
+      "details": "Deprecated. This contract is kept in the Upgrades Plugins for backwards compatibility purposes. Users should use openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol instead. Helper contract to support initializer functions. To use it, replace the constructor with a function that has the `initializer` modifier. WARNING: Unlike constructors, initializer functions must be manually invoked. This applies both to deploying an Initializable contract, as well as extending an Initializable contract via inheritance. WARNING: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or ensure that all initializers are idempotent, because this is not dealt with automatically as with constructors.",
+      "kind": "dev",
+      "methods": {},
+      "stateVariables": {
+        "initialized": {
+          "details": "Indicates that the contract has been initialized."
+        },
+        "initializing": {
+          "details": "Indicates that the contract is in the process of being initialized."
+        }
+      },
+      "title": "Initializable",
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "lib/openzeppelin-upgrades/packages/core/contracts/Initializable.sol": "Initializable"
+    },
+    "evmVersion": "istanbul",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin-upgrades/=lib/openzeppelin-upgrades/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-upgrades/packages/core/contracts/Initializable.sol": {
+      "keccak256": "0x516c704636466430b300e9290312d225a3e23ac50096a74a80d7830f0701e361",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04be950324a573c0153167098bfda7e171c1167fd4ee82a8f62a134f2b35806e",
+        "dweb:/ipfs/QmRg3kFLFTeCFzmwvaT66cr4g9KUfihQm7U4h8XKxEis4D"
+      ]
+    }
+  },
+  "version": 1
+}

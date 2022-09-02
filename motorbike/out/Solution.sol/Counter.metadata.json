@@ -1,0 +1,50 @@
+{
+  "compiler": {
+    "version": "0.8.16+commit.07a7930e"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/Solution.sol": "Counter"
+    },
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin-upgrades/=lib/openzeppelin-upgrades/"
+    ]
+  },
+  "sources": {
+    "src/Solution.sol": {
+      "keccak256": "0xddc6eee82a16e620673e1f6c4c270e7f8f9c8fa01b07bd93fb7f7ebae16414ec",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://894e1644f24178b6528e6b74fa5b15892a36f0b59f398dda70a69c9ca5206400",
+        "dweb:/ipfs/QmYj35jdQ8kek3uR62h5QcDzJDHoypkEnmdd3Bkps5YwsK"
+      ]
+    }
+  },
+  "version": 1
+}
