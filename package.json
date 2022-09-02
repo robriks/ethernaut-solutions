@@ -1,6 +1,10 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.2",
     "ethers": "^5.7.0",
     "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@openzeppelin/upgrades-core": "^1.18.0"
   }
 }
