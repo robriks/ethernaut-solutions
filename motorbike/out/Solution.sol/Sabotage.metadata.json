@@ -1,0 +1,106 @@
+{
+  "compiler": {
+    "version": "0.6.12+commit.27d51765"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address payable",
+            "name": "$your_ethernaut_instance_here",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "inspectDamage",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "sugarInYourEngine",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/Solution.sol": "Sabotage"
+    },
+    "evmVersion": "istanbul",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin-upgrades/=lib/openzeppelin-upgrades/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol": {
+      "keccak256": "0xf218c1f65c221479daaad55e6233889b6ba0d8ec7869db5b3fb34340e85b3647",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://d259a62a90b7ee539a436f49bd44540a85218b32dd2164d50cc624be58fcb654",
+        "dweb:/ipfs/QmYckQak85wMeA1xcPvTqPD5SS6LRfQbpuApLqJ9kesmNL"
+      ]
+    },
+    "lib/openzeppelin-upgrades/packages/core/contracts/Initializable.sol": {
+      "keccak256": "0x516c704636466430b300e9290312d225a3e23ac50096a74a80d7830f0701e361",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04be950324a573c0153167098bfda7e171c1167fd4ee82a8f62a134f2b35806e",
+        "dweb:/ipfs/QmRg3kFLFTeCFzmwvaT66cr4g9KUfihQm7U4h8XKxEis4D"
+      ]
+    },
+    "src/Motorbike.sol": {
+      "keccak256": "0x7a60b065d44bb34364e59ec5d403a0196d5a1f7902c265349c9b0779949e4bd8",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://fb778ab56bd25e35113903dc77508f19fccc139a597a11261cdfba7ac2752475",
+        "dweb:/ipfs/QmRTG6NVKJRDhF6W93cEQZzrN3qknGeEoFfEBL1TThyY25"
+      ]
+    },
+    "src/Solution.sol": {
+      "keccak256": "0xadad5bfb2b93b771b7a56de44c0987a87ae79990f6db2bcc8f202a50587bc97d",
+      "license": "UNLICENSED",
+      "urls": [
+        "bzz-raw://27620e52bc6500c6d42b0ca697f9a96c785903822df60b697261596f76a405a7",
+        "dweb:/ipfs/QmX2PXLTBHZQjtbKJ8uELBs3bR27hQU7JfgnH5pC3T3QaD"
+      ]
+    }
+  },
+  "version": 1
+}

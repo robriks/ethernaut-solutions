@@ -10,51 +10,14 @@ function to set maxBalance = 0: setMaxBalance()
 function to become whitelisted: addToWhitelist()
 -needs owner, a closed loop. how then to break this contract if none of the functions are callable!?
 
-what if we bypass the proxy entirely and call these functions on the logic implementation contract itself? pretty useless, right?
 
-not if the logic implementation is completely untouched- that is to say, if it was deployed without explicitly being initialized, we still have a chance at calling ```init()```
+While perusing ways to explodingKittens this proxy structure, I noticed that the proxy contract's maxBalance storage variable matches the owner storage variable. On further examination, these values match both pendingAdmin and admin storage values as well! Almost as if we're reading the from the same storage slot...
 
-i actually just recently read of this exploit, dubbed "explodingKittens" that took place (thankfully without any damage) in 2021. It's a severe vulnerability that could have been abused to brick tens (possibly hundreds) of millions of dollars.
+Yup. The storage variables of both contracts are overlapping. Conveniently, the only function in the proxy contract that can be called without invoking the onlyAdmin() modifier is one to propose a pendingAdmin. Lo and behold, pendingAdmin is the slot being read from (twice) to return the owner. Does that mean the storage uint256 maxBalance is what the proxy storage address admin reads from?
 
----EDIT: turns out the explodingKittens exploit is NOT fastest way to complete this level, something I just realized a ways into this challenge. I'll keep my explodingKittens ramblings here for you to read if you're curious about that approach but feel free to skip to the storage variable manipulation section a ways down if you just want to solve the level quickly and much more cleanly.
+Why yes, yes it does. What a perfect foot in the door to maneuver deeper into the access control roles of the contract.
 
-first let's locate the target logic implementation contract. openzeppelin has an awesome library of nifty proxy functions, one of which does exactly this! A short js script will do the trick:
-
-import {getImplementationAddress} from '@openzeppelin/upgrades-core'
-const targetImpl = await getImplementationAddress(provider, proxyAddress)
-
-the completed js script is in the ```script``` directory of this repo; it uses the common ethers js framework as well as the ever-useful dotenv library to establish a connection to Rinkeby via Infura.
-
-When we run our nifty getImplementation.js script, a target address is returned to us in the console:
-!!!!!!!!!!! IMPORT RESULT.PNG FROM /SCRIPT DIRECTORY
-
-Let's run some quick checks to see if the logic implementation is initialized:
-
-```cast call 0x49B448277D59Ba8d2ca8507f80b2E0633fE72158 --rpc-url $RPC "owner():(address)"```
-```cast call 0x49B448277D59Ba8d2ca8507f80b2E0633fE72158 --rpc-url $RPC "maxBalance():(uint256)"```
-
-0 all around!? QUICK CALL INIT(0) BEFORE SOME OTHER H4CK3R DOES! (or, as we are about to do, write it into a malicious contract for the element of surprise)
-
-```cast send --private-key $PRIV_KEY 0x49B448277D59Ba8d2ca8507f80b2E0633fE72158 --rpc-url $RPC "init(uint256)" 0
-
-Howly h00ts, I'M IN!!! 😈😈😈😈😈
-
-PWND! with owner set to KweenBirb's address, we can now add ourselves to the whitelist and use the delegatecall inside the multicall function to manipulate storage variables! Teehee, we're gonna be both pwner and admin!
-
-But wait, hol up 1 sec yo. We just pwned the logic implementation contract, which isn't the Ethernaut instance we were targeting in the first place. Calling these functions on the logic implementation directly doesn't benefit us at all because they don't affect the proxy contract... Unless... maybe we can try a couple things:
-1. selfdestruct() the logic implementation and cause proxy delegations to its 'codebase' to misbehave by getting empty return values
-2. manipulate storage values in the proxy contract using the execute and multicall functions from the logic implementation
-
-### KweenBirb belatedly realizes she's overthinking this hack
-????????? omg I just realized the storage variables of proxy vs logic contract overlap. damnit. ok nao KweenBirb PIVOT
-
-while perusing ways to explodingKittens this proxy structure, I noticed that the proxy contract's maxBalance storage variable matches the owner storage variable. On further examination, these values match both pendingAdmin and admin storage values as well! Almost as if we're reading the from the same storage slot...
-
-Yup. Not to mention the only function in the proxy contract that can be called without invoking the onlyAdmin() modifier is one to propose a pendingAdmin. Lo and behold, pendingAdmin is the slot being read from (twice) to return the owner. Does that mean the storage uint256 maxBalance is what the proxy storage address admin reads from?
-
-Why yes, yes it does. 
-
-let's pwn this shit! (again..)
+Let's pwn this shit!
 
 First we need to set pendingAdmin to a malicious contract we control so that we can pass the addToWhitelist() require check that reads from the owner/pendingAdmin storage slot. Easiest way to claim ownership ever, I guess!
 
