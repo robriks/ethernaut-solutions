@@ -1,0 +1,57 @@
+{
+  "compiler": {
+    "version": "0.8.16+commit.07a7930e"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "lib/forge-std/src/StdJson.sol": "stdJson"
+    },
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/forge-std/src/StdJson.sol": {
+      "keccak256": "0x1297a1cc393bc8163ccf143e5335536e78cb25ac24a4f6dfdb25f5746dd4827e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://945ccffad9fc09d2aa0ac200a80dcfa2f491dba8680fc9c3d3d450d891284b87",
+        "dweb:/ipfs/QmYSfFb1L6LN1ZB9KWzZqxt2iAbpuFDskBcU1Bz4RiyuQ5"
+      ]
+    },
+    "lib/forge-std/src/Vm.sol": {
+      "keccak256": "0xc369532b3bcc22689b9d704af21653efdc411a62de10f61e664225ccdb64722b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://dccc3a6f4644ab89c729985114e7d86cc86fd55c5a60801c4cf86b2fa9233cc3",
+        "dweb:/ipfs/QmY8jXTw8Ktz4UrScQNhfp2ErSWUj4uNkHhqj9Qt4QXG4G"
+      ]
+    }
+  },
+  "version": 1
+}
