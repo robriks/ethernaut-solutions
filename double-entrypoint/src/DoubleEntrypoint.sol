@@ -9,7 +9,7 @@ interface DelegateERC20 {
 }
 
 interface IDetectionBot {
-    function handleTransaction(address user, bytes calldata msgData) external returns (bytes calldata);
+    function handleTransaction(address user, bytes calldata msgData) external;
 }
 
 interface IForta {

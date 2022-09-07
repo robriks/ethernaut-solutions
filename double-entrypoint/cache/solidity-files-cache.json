@@ -511,8 +511,8 @@
       }
     },
     "src/DoubleEntrypoint.sol": {
-      "lastModificationDate": 1662426222010,
-      "contentHash": "4718e48191976d4323bd842a9737581b",
+      "lastModificationDate": 1662514300844,
+      "contentHash": "1917eec2563d7f3d54995a0be2ee7d48",
       "sourceName": "src/DoubleEntrypoint.sol",
       "solcConfig": {
         "settings": {
@@ -574,8 +574,8 @@
       }
     },
     "src/Solution.sol": {
-      "lastModificationDate": 1662413652255,
-      "contentHash": "eb317c437f476bedb4fed91785f21c9d",
+      "lastModificationDate": 1662515535785,
+      "contentHash": "2647394e915bda0ad4c9afa23739a209",
       "sourceName": "src/Solution.sol",
       "solcConfig": {
         "settings": {
@@ -614,14 +614,14 @@
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
-        "Defense": {
-          "0.8.16+commit.07a7930e.Linux.gcc": "Solution.sol/Defense.json"
+        "DetectionBot": {
+          "0.8.16+commit.07a7930e.Linux.gcc": "Solution.sol/DetectionBot.json"
         }
       }
     },
     "test/Solution.t.sol": {
-      "lastModificationDate": 1662426320010,
-      "contentHash": "0cbc9b4a53a7c8337336e8af7b1be918",
+      "lastModificationDate": 1662515521430,
+      "contentHash": "4d6124f26371aa0fd91bd970e5f71b0e",
       "sourceName": "test/Solution.t.sol",
       "solcConfig": {
         "settings": {

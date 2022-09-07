@@ -1,43 +1,43 @@
 {
   "abi": [],
   "bytecode": {
-    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212200446e947686bf4e0d4fe19345748a6d283332ecc5e32e3fccaa6797f7d5deb6464736f6c63430008100033",
+    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220dda977bff84fd576add1059a30f4e2b52f7388c277f88b1563dfcac92fc3b39464736f6c63430008100033",
     "sourceMap": "99:19:13:-:0;;;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x6080604052600080fdfea26469706673582212200446e947686bf4e0d4fe19345748a6d283332ecc5e32e3fccaa6797f7d5deb6464736f6c63430008100033",
+    "object": "0x6080604052600080fdfea2646970667358221220dda977bff84fd576add1059a30f4e2b52f7388c277f88b1563dfcac92fc3b39464736f6c63430008100033",
     "sourceMap": "99:19:13:-:0;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {},
   "ast": {
     "absolutePath": "src/Solution.sol",
-    "id": 24365,
+    "id": 24363,
     "exportedSymbols": {
       "Context": [
         23939
       ],
       "CryptoVault": [
-        24155
+        24153
       ],
       "Defense": [
-        24364
+        24362
       ],
       "DelegateERC20": [
         23955
       ],
       "DoubleEntryPoint": [
-        24360
+        24358
       ],
       "ERC20": [
         23814
       ],
       "Forta": [
-        24087
+        24085
       ],
       "IDetectionBot": [
-        23965
+        23963
       ],
       "IERC20": [
         23892
@@ -46,10 +46,10 @@
         23917
       ],
       "IForta": [
-        23983
+        23981
       ],
       "LegacyToken": [
-        24230
+        24228
       ],
       "Ownable": [
         23227
@@ -59,7 +59,7 @@
     "src": "39:79:13",
     "nodes": [
       {
-        "id": 24362,
+        "id": 24360,
         "nodeType": "PragmaDirective",
         "src": "39:24:13",
         "literals": [
@@ -70,19 +70,19 @@
         ]
       },
       {
-        "id": 24363,
+        "id": 24361,
         "nodeType": "ImportDirective",
         "src": "65:32:13",
         "absolutePath": "src/DoubleEntrypoint.sol",
         "file": "./DoubleEntrypoint.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 24365,
-        "sourceUnit": 24361,
+        "scope": 24363,
+        "sourceUnit": 24359,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 24364,
+        "id": 24362,
         "nodeType": "ContractDefinition",
         "src": "99:19:13",
         "abstract": false,
@@ -92,11 +92,11 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          24364
+          24362
         ],
         "name": "Defense",
         "nameLocation": "108:7:13",
-        "scope": 24365,
+        "scope": 24363,
         "usedErrors": []
       }
     ],

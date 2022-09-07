@@ -32,10 +32,20 @@ Nothing too complex in the msg.data above, we can easily see:
 3. The value parameter that like our player address was set way back in the CryptoVault context and has now been passed to delegateTransfer
 4. The CryptoVault contract address (that was/will be set in the constructor as $your_ethernaut_instance_here) which in this scenario serves as delegateTransfer's origSender parameter or in ERC20 terms, the owner from which the tokens are being transferred.
    
-In order to defend CryptoVault against this exploit, the fourth item (the end of the calldata) is what we're interested in blocking. 
+In order to defend CryptoVault against this exploit, the fourth item located at position 0xa8 near the end of the calldata is what we're interested in blocking. 
 
-function handleTransaction(address user, bytes calldata msgData) public {
-        // if () revert();
+function handleTransaction(address user, bytes calldata msgData) external {
+        require(msg.sender == address(forta), 'Must be called by Forta contract');
+        
+        bytes32 res;
+        assembly {
+            res := calldataload(0xa8)
+        }
+        if (address(uint160(uint256(res))) == address(cryptoVault)) { 
+            forta.raiseAlert(user); 
+        }
     }
+
+And there we have a cute little bot to protect the CryptoVault from being drained.
 
 All that's left to do to save this poor contract from dangerous hackers in the dark forest is call setDetectionBot() on the Forta contract, providing your deployed defensive DetectionBot address, christening it ardent warden of the CryptoVault. Be sure to do it manually via EOA, as the Forta contract will read and store msg.sender on the tx.

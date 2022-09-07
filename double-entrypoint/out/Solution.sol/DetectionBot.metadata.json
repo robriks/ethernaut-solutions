@@ -4,7 +4,72 @@
   },
   "language": "Solidity",
   "output": {
-    "abi": [],
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "$your_Forta_here",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "$your_ethernaut_instance_here",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "$your_CryptoVault_here",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "$your_LegacyToken_here",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "defense",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes",
+            "name": "msgData",
+            "type": "bytes"
+          }
+        ],
+        "name": "handleTransaction",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "proveVulnerability",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
     "devdoc": {
       "kind": "dev",
       "methods": {},
@@ -18,7 +83,7 @@
   },
   "settings": {
     "compilationTarget": {
-      "src/Solution.sol": "Defense"
+      "src/Solution.sol": "DetectionBot"
     },
     "evmVersion": "london",
     "libraries": {},
@@ -85,11 +150,11 @@
       ]
     },
     "src/Solution.sol": {
-      "keccak256": "0x60ca90992cc68606999620ad68fef88780c4d22cac854c9c6225fe17d08ea367",
+      "keccak256": "0x02b0938b98782d3e40e4f32df5b1dc93951c720c0a6a5176ee915d61133d5e1c",
       "license": "UNLICENSED",
       "urls": [
-        "bzz-raw://663a86a78eb8a2faa9de9ce82a262c5a0033c4ffab0b539eedbba1fa012c4105",
-        "dweb:/ipfs/Qmbrez4tZ7nAYaPDTqBA81E77eeJFQ4N9DY7qf8NJtc31t"
+        "bzz-raw://271f3dc6a854347f4946b244f2354a0fd0a80ef69c19c4bf1a114542c15d2c78",
+        "dweb:/ipfs/QmfS7HJwqDUEHx35mKzEFjF56ncxPm63dkuWiXvgce1LKn"
       ]
     }
   },
