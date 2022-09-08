@@ -1,4 +1,4 @@
-## Welcome to KweenBirb's 6th installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 7th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
