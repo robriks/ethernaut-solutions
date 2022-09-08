@@ -1,0 +1,102 @@
+{
+  "compiler": {
+    "version": "0.8.16+commit.07a7930e"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "coin",
+        "outputs": [
+          {
+            "internalType": "contract Coin",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "requestDonation",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "enoughBalance",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "wallet",
+        "outputs": [
+          {
+            "internalType": "contract Wallet",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/GoodSamaritan.sol": "GoodSamaritan"
+    },
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":ds-test/=lib/forge-std/lib/ds-test/src/",
+      ":forge-std/=lib/forge-std/src/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol": {
+      "keccak256": "0x9720545d8ea1f76222f98683f861f919e9c28bd5d5503caa7e3620a21b6aaa24",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://fe3dac0e0258d8396c33fd27c277699a9bfac198f2cb45632c4f5df2c2ca895a",
+        "dweb:/ipfs/QmfEWsX7aGpWN9wooHiQo1XjiGM1h6iXeaeMTAJ1TUcnts"
+      ]
+    },
+    "src/GoodSamaritan.sol": {
+      "keccak256": "0x67d25e5cfffddf1a20a0268f8647e5c79c964c9f62025fec345d30f147f8b340",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://949f54044f0cea89138af2b78069ceac508dae51e1260d4c3b36015644131fb6",
+        "dweb:/ipfs/QmSQxgGUVwDCPMbBu7waexMsN9DehLwCxDTTVZr1RgZWJu"
+      ]
+    }
+  },
+  "version": 1
+}
