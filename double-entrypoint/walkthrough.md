@@ -1,3 +1,12 @@
+## Welcome to KweenBirb's 27th installment of Ethernaut walkthroughs!
+Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
+
+This repo will walk you through a solution to DoubleEntrypoint.sol, the 27th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
+
+OpenZeppelin instructs us that this time, rather than just hack the contracts using a clever exploit, we must also work defensively to 'figure out where the bug is in CryptoVault and protect it from being drained out of tokens.' Time to put away the black hat and replace it with a white one!
+
+
+
 Forta allows users to set their own detection bots with custom handleTransaction() implementations
 -i think handleTransaction() will also handle notifying users of unexpected activity?
 -keeps a counter of alerts raised in order to revert unsavory transactions
