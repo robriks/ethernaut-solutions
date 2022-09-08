@@ -1,7 +1,7 @@
 ## Welcome to KweenBirb's 4th installment of Ethernaut walkthroughs!
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to CoinFlip.sol, the 20th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
+This repo will walk you through a solution to AlienCodex.sol, the 20th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
 
 OpenZeppelin instructs us that we've found an Alien contract and must 'claim ownership to complete the level.'
 
