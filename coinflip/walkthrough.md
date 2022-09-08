@@ -4,9 +4,7 @@ Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where 
 
 This repo will walk you through a solution to the 4_CoinFlip.sol challenge. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
 
-OpenZeppelin instructs us that this contract 
-
-#### 'is a coin flipping game where you need to build up your winning streak by guessing the outcome of a coin flip. To complete this level you'll need to use your psychic abilities to guess the correct outcome 10 times in a row.'
+OpenZeppelin instructs us that this contract 'is a coin flipping game where you need to build up your winning streak by guessing the outcome of a coin flip. To complete this level you'll need to use your psychic abilities to guess the correct outcome 10 times in a row.'
 
 This must mean that the randomness generation is broken or circumventable!
 
