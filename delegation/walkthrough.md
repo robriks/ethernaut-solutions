@@ -1,11 +1,10 @@
-Welcome to KweenBirb's 6th installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 6th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to the 6_Delegation.sol challenge. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
+This repo will walk you through a solution to Delegation.sol. the 7th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
 
-Ethernaut instructs us to defeat this level provided we are simply able to 
-### 'claim ownership of the instance you are given.'
+Ethernaut instructs us to defeat this level provided we are simply able to 'claim ownership of the instance you are given.'
 
 We're given two contracts in the source code provided, a Delegation contract that is this level's instance to be exploited and an accompanying Delegate contract that has a single function: pwn(). Interesting.
 
