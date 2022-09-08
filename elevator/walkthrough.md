@@ -1,11 +1,10 @@
-## Welcome to KweenBirb's 10th installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 12th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to the 10_Elevator.sol challenge. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
+This repo will walk you through a solution to Elevator.sol, the 12th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
 
-Ethernaut instructs us to defeat this level by 
-### using the Elevator to reach the top floor of the Building.
+Ethernaut instructs us to defeat this level by simply 'using the Elevator to reach the top floor of the Building.' Easier said than done!
 
 The provided source code shows us we'll be working with two contracts, one called Building that has been abstracted to an interface and another called Elevator that is only a few lines of code long.
 
