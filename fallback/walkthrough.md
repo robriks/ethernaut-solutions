@@ -1,19 +1,10 @@
-Welcome to KweenBirb's 
-
-nth 
-
-installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 2nd installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to the 
+This repo will walk you through a solution to Fallback.sol, the 2nd challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
 
-4_CoinFlip.sol 
-
-challenge. You can find the challenge itself and fully fleshed out solution in the .txt and .sol files in this directory. Let's begin!
-
-OpenZeppelin instructs us to beat this level by 
-### altering the address variable in storage, 'owner', to reflect our address so that we may drain the contract's balance.
+Ethernaut instructs us to defeat this level by 'altering the address variable in storage, "owner", to reflect our address so that we may drain the contract's balance.'
 
 Skimming the contract, the withdraw() function stands out as the final step of our exploit, once we've claimed ownership in order to satisfy the onlyOwner() modifier.
 
