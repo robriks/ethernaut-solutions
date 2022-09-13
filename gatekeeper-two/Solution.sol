@@ -1,36 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-contract GatekeeperTwo {
-
-  address public entrant;
-
-  modifier gateOne() {
-    require(msg.sender != tx.origin);
-    _;
-  }
-
-  modifier gateTwo() {
-    uint x;
-    assembly { x := extcodesize(caller()) }
-    require(x == 0);
-    _;
-  }
-
-  modifier gateThree(bytes8 _gateKey) {
-    require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);
-    _;
-  }
-
-  function enter(bytes8 _gateKey) public gateOne gateTwo gateThree(_gateKey) returns (bool) {
-    entrant = tx.origin;
-    return true;
-  }
-}
+import "./GatekeeperTwo.sol";
 
 contract EntrantTwo  {
     
-    GatekeeperTwo gatekeeperTwo = GatekeeperTwo(0x6D0F459A696cefC8409D3f90ec7e45CbaDC43390);
+    GatekeeperTwo gatekeeperTwo;
+
+    constructor(address $your_ethernaut_instance_here) {
+        gatekeeperTwo = GatekeeperTwo($your_ethernaut_instance_here);
+    }
 
     constructor() public {
         goTwo();
