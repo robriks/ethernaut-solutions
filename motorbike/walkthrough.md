@@ -1,8 +1,13 @@
-welcome snippet
+# Ethernaut Walkthrough: Motorbike
+## Welcome to KweenBirb's 26th installment of Ethernaut walkthroughs! 
 
-OpenZeppelin asks us to 'selfdestruct its engine and make the motorbike unusable'
+Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This challenge features a proxy just like the last challenge: Puzzle-Wallet, go check it out if you haven't already as this challenge will make a lot more sense having gone through that one. I recently read of the exploit dubbed "explodingKittens" that thankfully was discovered before any damage could be done. It's a severe vulnerability that could have been abused to brick tens (possibly hundreds) of millions of dollars. Funny enough, while solving the previous challenge I was at first convinced we would need to explode some kittens, only belatedly realizing it was a much simpler storage overlap situation. This challenge however looks prime for exploding some kittens!
+This repo will walk you through a solution to Motorbike.sol, the 26th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .sol file in the ./src directory. Let's begin!
+
+In this challenge, Ethernaut gives us yet another upgradeable proxy pattern contract, this time asking us to 'selfdestruct its engine and make the motorbike unusable'
+
+This challenge features a proxy just like the last challenge: Puzzle-Wallet, go check it out if you haven't already as this challenge will make a lot more sense having gone through that one. I actually just recently read of the exploit dubbed "explodingKittens" that thankfully was discovered before any damage could be done. It's a severe vulnerability that could have been abused to brick tens (possibly hundreds) of millions of dollars. Funny enough, while solving the previous challenge I was at first convinced we would need to explode some kittens, only belatedly realizing it was a much simpler storage overlap situation. This challenge however looks prime for exploding some kittens!
 
 The 2021 ExplodingKittens exploit is premised on the fact that many upgradeable proxy contracts possess their upgrade logic in the logic implementation contract and that calls are delegatecalled via a fallback function. This proxy pattern, while immensely useful, can be terribly disastrous if a dapp does not take care to initialize its logic implementation contract (logic implementation contracts' initialize function must be manually invoked, unlike constructors). In such a case, an attacker may be able to gain permissioned access within a logic contract and maneuver laterally within to wreak other havoc.
 
@@ -18,7 +23,7 @@ Remember that all storage variables and bytecode are ALWAYS public on-chain. The
 
 ```cast storage $your_ethernaut_instance 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc```
 
-Where $instance is set by a simple export:
+Where $your_ethernaut_instance is set by a simple export:
 
 ```export instance=0xd00d00beefb00b```
 
@@ -89,7 +94,7 @@ function payload() public {
     }
 ```
 
-And then invoke it using the Engine's convenient function intended for the proxy Motorbike to both set a new implementation and presumably initialize it in one transaction. Of course, we'll be setting things on fire instead.
+And then invoke it using the Engine's convenient function intended for the proxy Motorbike to both set a new implementation and presumably initialize it in a single transaction. Of course, we'll be setting things on fire instead.
 
 ```
 function sugarInYourEngine() public {
