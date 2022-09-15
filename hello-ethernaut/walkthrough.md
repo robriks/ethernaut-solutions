@@ -6,4 +6,6 @@ What are you doing here?! Ethernaut walks you through everything you need to com
 
 I'll see you at the next level!
 
+btw, I recommend paradigm's faucet: faucet.paradigm.xyz
+
 h00t h00t

