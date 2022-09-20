@@ -3,7 +3,7 @@
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to MagicNumber.sol, the 19th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .yul file in this directory. Let's begin!
+This repo will walk you through a solution to MagicNumber.sol, the 19th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file and .yul file in this directory. Let's begin!
 
 In this challenge, Ethernaut describes a deceptively simple objective: deploy a Solver contract that returns the answer to a whatIsTheMeaningOfLife() function call. We all know the answer to such a laughably easy question, and yet we're given a hint:
 

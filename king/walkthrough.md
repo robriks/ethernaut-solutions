@@ -3,7 +3,7 @@
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to King.sol, the 10th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .sol file in this directory. Let's begin!
+This repo will walk you through a solution to King.sol, the 10th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file and .sol file in this directory. Let's begin!
 
 In this challenge, Ethernaut describes a cute little code game of Napoleonic nature: a smart contract that awards kingship to whomever bribes it with the largest running amount of Ether. That is, until the game ends at which point the level simply kings itself. A rigged ponzi game of greater fool theory! We're lightheartedly instructed as follows:
 

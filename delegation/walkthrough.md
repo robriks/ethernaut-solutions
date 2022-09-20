@@ -25,7 +25,7 @@ fallback() external {
 
 The above function uses Solidity's low level delegatecall functionality! That means we should be able to use Delegate's pwn() function to manipulate Delegation's storage variables, like the owner address!
 
-## tiem 2 kode
+## Time to code
 
 Let's create a malicious contract with a function that does exactly that. Rather than bother with interfaces, we'll copy paste the source code for our attacker contract, named Delegatoor, to interact with. Therein, we use some low level wizardry:
 

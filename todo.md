@@ -1,4 +1,7 @@
 -write tutorials
+--fallout
+-- gatekeeper2
+
 -deploy to live nextjs site
 
---update introduction to fallback walkthrough.md
+check web3js for fallback walkthrough!!!

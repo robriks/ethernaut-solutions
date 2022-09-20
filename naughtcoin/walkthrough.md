@@ -3,7 +3,7 @@
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to Naughtcoin.sol, the 16th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .sol file in this directory. Let's begin!
+This repo will walk you through a solution to Naughtcoin.sol, the 16th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file and .sol file in this directory. Let's begin!
 
 In this challenge, Ethernaut describes a locked vesting scenario: being the mysterious shadowy insiders we are, we've been allocated 100% of the Naughtcoin ERC20 supply but cannot move (or dump them on the plebs SBF-style) for 10 years! Our objective is to: 'figure out how to get them out to another address so that you can transfer them freely? Complete this level by getting your token balance to 0.'
 
