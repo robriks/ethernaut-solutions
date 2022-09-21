@@ -45,10 +45,8 @@ contract SimpleToken {
 
 contract ShivaTheDestroyer {
 
-    SimpleToken simpleToken;
-
-    constructor(address $your_ethernaut_instance_here) {
-        simpleToken = SimpleToken(payable($your_ethernaut_instance_here));
+    constructor(address $your_ethernaut_SimpleToken_here) {
+        simpleToken = SimpleToken(payable($your_ethernaut_SimpleToken_here));
     }
 
     function destroy() public {
