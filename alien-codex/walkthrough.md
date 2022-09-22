@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Alien Codex
 ## Welcome to KweenBirb's 20th installment of Ethernaut walkthroughs!
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
@@ -35,3 +36,7 @@ a hacker is able to manipulate the value of the contract owner by reaching over 
 zeroSlot = 2**256 - arraySlot
 bytes32 caller = bytes32(bytes20(msg.sender))
 contract.revise(zeroSlot, caller)
+
+
+○•○ h00t h00t ○•○
+

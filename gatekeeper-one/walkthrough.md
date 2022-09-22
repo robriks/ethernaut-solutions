@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Gatekeeper One
 ## Welcome to KweenBirb's 14th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
@@ -16,3 +17,6 @@ gate1 gate2 gate3 explanation
 1: smart contract that is not user EOA
 2: gas consumption brute forcing to identify exact amount of gas to forward // via hardhat js script
 3: typecasting the bytes8 parameter _gateKey to get access to Entrant registry // via reverse engineering the key required and then simulating the typecasting. work backwards from nested tx.origin variable
+
+
+○•○ h00t h00t ○•○

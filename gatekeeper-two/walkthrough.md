@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Gatekeeper Two
 ## Welcome to KweenBirb's 15th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
@@ -20,3 +21,6 @@ Just like the previous Gatekeeper challenge, Ethernaut again instructs us to 're
 // uint64(_gateKey) = 6427117074688828612 ^ 18446744073709551615
 // uint64(_gateKey) = 12019626999020723003
 // bytes8 _gateKey = 0xa6ce4b12a9531b3b
+
+
+○•○ h00t h00t ○•○

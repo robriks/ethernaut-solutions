@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Denial
 ## Welcome to KweenBirb's 21st installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
@@ -16,3 +17,7 @@ use while loop to consume all gas on unchecked call from instance
 
 takeaway:
 check return result on low level call and specify gas amount to forward
+
+
+○•○ h00t h00t ○•○
+

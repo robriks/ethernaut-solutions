@@ -84,4 +84,4 @@ Congratulations!
 
 *** PS. If you haven't yet figured out the significance of the variable FACTOR, look into how Solidity handles truncation and rounding as well as the value of FACTOR * 2
 
-h00t h00t
+○•○ h00t h00t ○•○

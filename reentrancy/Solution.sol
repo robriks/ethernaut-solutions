@@ -17,7 +17,7 @@ contract Reenter {
     }
 
     function give() public {
-        address to =  address(this);
+        address to = address(this);
         reentrance.donate{ value: amount }(to);
     }
 

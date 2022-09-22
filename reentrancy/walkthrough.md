@@ -103,4 +103,5 @@ contract Reenter {
 }
 ```
 
-Hack away, frens! h00t h00t
+Hack away, frens! 
+○•○ h00t h00t ○•○

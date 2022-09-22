@@ -108,4 +108,5 @@ object "contract" {
 }
 ```
 
-A successful first foray into EVM bytecode and Yul assembly. h00t h00t!
+A successful first foray into EVM bytecode and Yul assembly. 
+○•○ h00t h00t ○•○

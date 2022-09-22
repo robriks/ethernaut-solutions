@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Dex Two
 ## Welcome to KweenBirb's 24th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
@@ -13,3 +14,5 @@ unlike previous ethernaut level dex, swap function no longer requires set token1
 let's create a custom malicious token to provide unexpected erc20 values to dex contract and drain both sides of the liquidity pool
 
 suggestions for improvement: rather than invoking IERC20() calls on the provided parameters: address from, address to; simply anchor those calls to the storage variables: address token1, address token2.
+
+○•○ h00t h00t ○•○

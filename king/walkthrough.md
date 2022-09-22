@@ -53,3 +53,4 @@ contract NapoleonSucks() {
 ```
 
 Cool, that was easy. Moving on!
+○•○ h00t h00t ○•○

@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Hello Ethernaut
 ## Welcome to KweenBirb's 1st installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
@@ -8,4 +9,4 @@ I'll see you at the next level!
 
 btw, I recommend paradigm's faucet: faucet.paradigm.xyz
 
-h00t h00t
+○•○ h00t h00t ○•○

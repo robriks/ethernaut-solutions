@@ -39,4 +39,4 @@ function destroy() public {
 
 This way, Shiva will call the destroy function and we can extract the contract balance as a reward for discovering the lost contract address. Sublime.
 
-h00t h00t
+○•○ h00t h00t ○•○

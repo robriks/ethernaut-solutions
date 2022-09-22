@@ -49,4 +49,5 @@ await contract.approve(maliciousContract, amount)
 
 Once the approve transaction is mined by the network, simply call the naughtyConsent() function we wrote on our malicious hacker contract to drain our balance without even touching the lockTokens() modifier!
 
-h00t h00t! Get dumped on 😈 😈 😈 
+Get dumped on 😈 😈 😈 
+○•○ h00t h00t ○•○

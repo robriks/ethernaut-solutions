@@ -1,3 +1,4 @@
+# Ethernaut Walkthrough: Double Entrypoint
 ## Welcome to KweenBirb's 27th installment of Ethernaut walkthroughs!
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
@@ -58,3 +59,5 @@ function handleTransaction(address user, bytes calldata msgData) external {
 And there we have a cute little bot to protect the CryptoVault from being drained.
 
 All that's left to do to save this poor contract from dangerous hackers in the dark forest is call setDetectionBot() on the Forta contract, providing your deployed defensive DetectionBot address, christening it ardent warden of the CryptoVault. Be sure to do it manually via EOA, as the Forta contract will read and store msg.sender on the tx.
+
+○•○ h00t h00t ○•○

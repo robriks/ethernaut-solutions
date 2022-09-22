@@ -129,4 +129,4 @@ Bam. That's our pwn function in a bugshell. Deploy, destroy, and enjoy!
 
 Congratulations on defeating the Worm by gaining administrative access to the ever-untapped power well of social coordination. Long live Khepri.
 
-h00t h00t
+○•○ h00t h00t ○•○

@@ -95,3 +95,4 @@ Passing in the uint typecasted msg.sender will provide Preservation with the add
 What a complicated flow of execution! But we're on the heist's final stretch: just deploy our evil contract, point it at Ethernaut's Preservation instance, and call attack() to completely pwn the instance's storage variables and become owner. h00t h00t
 
 Slick, no?
+○•○ h00t h00t ○•○

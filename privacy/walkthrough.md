@@ -82,4 +82,4 @@ Then call your hack() function to unlock Privacy's failed attempt at keeping sec
 
 But for now, with blockchain in its fledgling years, it's best to have an auditable and provably working system!
 
-h00t h00t
+○•○ h00t h00t ○•○
