@@ -4,7 +4,7 @@ interface Telephone {
     function changeOwner(address _owner) external;
 }
 
-contract Draino {
+contract NotTxOrigin {
 
     Telephone telephone;
 

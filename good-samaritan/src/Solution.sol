@@ -6,15 +6,11 @@ import "./GoodSamaritan.sol";
 contract ErrorInjection is INotifyable {
 
     GoodSamaritan goodSamaritan;
-    Coin coin;
-    Wallet wallet;
 
     error NotEnoughBalance();
 
     constructor(address $your_ethernaut_instance_here) {
         goodSamaritan = GoodSamaritan($your_ethernaut_instance_here);
-        coin = Coin(goodSamaritan.coin());
-        wallet = Wallet(goodSamaritan.wallet());
     }
 
     function inject() public {
