@@ -37,30 +37,64 @@ modifier gateTwo() {
 
 Not exactly. There is a moment in time during execution where  a smart contract's EXTCODESIZE() can be 0 despite it possessing code. Can you guess when that might be?
 
-If you recall what we learned in Ethernaut's Magic Number challenge, there are two kinds of contract bytecode: initcode and runtime bytecode. It so happens that during the deployment of a smart contract, ie while initcode is being run, the runtime bytecode has not yet been deployed to the chain. This means that a contract's EXTCODESIZE() is 0 during the execution of initcode, known in Solidity as a constructor() function.
+If you recall what we learned in Ethernaut's Magic Number challenge, there are two kinds of contract bytecode: initcode and runtime bytecode. It so happens that during the deployment of a smart contract, ie while initcode is being run, the runtime bytecode has not yet been deployed to the chain. This means that a contract's EXTCODESIZE() is 0 during the execution of the initcode, known in Solidity as a constructor() function.
 
-So this second gate modifier can be bypassed so long as we call into GatekeeperTwo's enter() function in the same transaction while our contract is being deployed during its constructor.
+So this second gate modifier can be bypassed so long as we call into GatekeeperTwo's enter() function in the same transaction that deploys our contract- during its constructor.
 
 ## The gateThree() modifier
 
+Okay, onto the elephant in the room- what the fuck is this:
 
+```
+modifier gateThree(bytes8 _gateKey) {
+    require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);
+    _;
+}
+```
 
+Aside from being some unrealistic monstrosity that you'd never see in the wild, it's not actually as bad as it looks. Let's start with the innermost items and work outward.
 
+```abi.encodePacked(msg.sender)```
 
+To start, the gateThree modifier uses the caller address to derive the  _gateKey that we need to will register as an entrant. It's then hashed:
 
+```keccak256(abi.encodePacked(msg.sender))```
 
-// (uint64(0) - 1) = 18446744073709551615
+and typecast into a uint64:
 
-// (keccak256(abi.encodePacked(msg.sender))) = 0x5931b4ed56ace4c46b68524cb5bcbf4195f1bbaacbe5228fbd090546c88dd229
-// bytes8((keccak256(abi.encodePacked(msg.sender)))) = 0x5931b4ed56ace4c4
-// uint64(bytes8((keccak256(abi.encodePacked(msg.sender))))) = 6427117074688828612
+```uint64(bytes8(keccak256(abi.encodePacked(msg.sender))))```
 
-// 6427117074688828612 ^ uint64(_gateKey) = 18446744073709551615
+which is then XORed against the _gateKey bytes8 parameter provided:
 
-// Since the inverse of XOR is XOR itself, reverse of above equation is:
-// uint64(_gateKey) = 6427117074688828612 ^ 18446744073709551615
-// uint64(_gateKey) = 12019626999020723003
-// bytes8 _gateKey = 0xa6ce4b12a9531b3b
+```uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey)```
 
+And that result is checked within a require() statement against ```uint64(0) - 1``` which due to underflow is equivalent to 18446744073709551615. As of Solidity 0.8.0 this can also be accessed with ```type(uint64).max```
+
+```
+require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);
+```
+
+Great! Now to reverse engineer this process and provide the correct bytes8 _gateKey parameter we do the steps outlined above in reverse, providing the address of our contract using ```address(this)```
+
+Keep in mind that the inverse of XOR is XOR itself!
+
+```
+function slipInside() public {
+    bytes8 gateKey = bytes8((uint64(0) -1) ^ uint64(bytes8(keccak256(abi.encodePacked(address(this))))));
+
+    gatekeeperTwo.enter(gateKey);
+}
+```
+
+And don't forget to call our function in the constructor to make sure it passes the EXTCODESIZE check in the gateTwo() modifier!
+
+```
+constructor(address $your_ethernaut_instance_here) {
+    gatekeeperTwo = GatekeeperTwo($your_ethernaut_instance_here);
+    slipInside();
+}
+```
+
+And using the constructor on deployment of our contract, we've slipped inside the GatekeeperTwo contract to register as an EntrantTwo. Success!
 
 ○•○ h00t h00t ○•○

