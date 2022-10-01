@@ -11,10 +11,6 @@ contract EntrantTwo  {
         gatekeeperTwo = GatekeeperTwo($your_ethernaut_instance_here);
     }
 
-    constructor() public {
-        goTwo();
-    }
-
     function goTwo() public {
         bytes8 gateKey = bytes8((uint64(0) -1) ^ uint64(bytes8(keccak256(abi.encodePacked(address(this))))));
 
