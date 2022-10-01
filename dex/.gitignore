@@ -1,0 +1,11 @@
+# Compiler files
+cache/
+out/
+
+#Environment variables
+.env
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*
+/broadcast/*/31337/
