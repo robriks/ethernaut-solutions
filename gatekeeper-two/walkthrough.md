@@ -74,7 +74,9 @@ And that result is checked within a require() statement against ```uint64(0) - 1
 require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);
 ```
 
-Great! Now to reverse engineer this process and provide the correct bytes8 _gateKey parameter we do the steps outlined above in reverse, providing the address of our contract using ```address(this)```
+## Crafting a function to slip past the gateThree() modifier
+
+Great! Now that we understand gateThree(), our goal is to reverse engineer this process and provide the correct bytes8 _gateKey parameter we do the steps outlined above in reverse, providing the address of our contract using ```address(this)```
 
 Keep in mind that the inverse of XOR is XOR itself!
 
@@ -86,6 +88,8 @@ function slipInside() public {
 }
 ```
 
+## GateTwo must be satisfied
+
 And don't forget to call our function in the constructor to make sure it passes the EXTCODESIZE check in the gateTwo() modifier!
 
 ```
@@ -95,6 +99,6 @@ constructor(address $your_ethernaut_instance_here) {
 }
 ```
 
-And using the constructor on deployment of our contract, we've slipped inside the GatekeeperTwo contract to register as an EntrantTwo. Success!
+Using the constructor on deployment of our contract, we've slipped inside the GatekeeperTwo contract to register as an EntrantTwo. Success!
 
 ○•○ h00t h00t ○•○
