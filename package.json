@@ -5,6 +5,7 @@
     "fs": "^0.0.1-security"
   },
   "devDependencies": {
-    "@openzeppelin/upgrades-core": "^1.18.0"
+    "@openzeppelin/upgrades-core": "^1.18.0",
+    "hardhat": "^2.11.2"
   }
 }
