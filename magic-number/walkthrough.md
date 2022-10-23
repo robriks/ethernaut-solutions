@@ -25,6 +25,8 @@ If you've never worked with EVM bytecode directly, fret not for I have included 
 
 Onward!
 
+## Working backwards
+
 To figure out how to provide a 10-byte-long, deployed Solver that returns 42, we should work backwards. The opcodes for the equivalent of Solidity's: 
 
 ```return (42)``` 
@@ -49,6 +51,8 @@ So we know what 9 bytes we need to fulfill the proper Solver role for the challe
 The bytecode we decided on above is what we call runtime bytecode, the instructions that will run when a call is made to the deployed contract address. This is different from the bytecode that will actually deploy the contract, which we call initcode.
 
 A contract's initcode will include the runtime bytecode to be stored on chain but will first include instructions that handle the creation of a new contract, namely CREATE or CREATE2. The initcode essentially CODECOPYs the runtime bytecode into memory and then RETURNs, inserting a convenient INVALID (fe) opcode between the initcode and the runtime bytecode to help differentiate between the two.
+
+## From bytecode to Yul assembly
 
 Now that we understand what we need to accomplish to deploy our Solver bytecode, let's back up one layer of abstraction out of EVM opcodes and into Yul assembly! Yul will give us a convenient, very thin wrapper around EVM instructions for us to get our hands dirty in low level code without having to handle each byte individually.
 
@@ -75,6 +79,8 @@ object "runtime" {
     }
 }
 ```
+
+## But our solution is not as optimized as our hand-drawn bytecode!
 
 This is the bare minimum yul code necessary to store 0x2a (42) into memory at slot 0x40 and then return 2 bytes from slot 0x40. This should accomplish something very similar to the opcodes we decided on, but you'll notice that it doesn't compile down to exactly the same instructions we chose:
 

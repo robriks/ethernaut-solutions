@@ -35,6 +35,8 @@ Now we can use Foundry's awesome power to obtain the Vault contract's password! 
 
 The first storage variable is a boolean, which of course is the smallest Solidity type. There's a good chance this would get packed with whatever storage variable falls next in declaration- however in this case, the second storage variable is our bytes32 password. A bytes32 variable will occupy an entire storage slot, meaning that the locked boolean is occupying a slot all on its own here. It's worth nothing that storage slots begin at 0, not 1. This means that the locked boolean resides in storage slot 0 with a bunch of empty bytes, and the password bytes32 takes up the entirety of storage slot 1.
 
+## Running cast commands
+
 We can check our musings using Foundry's cast storage tool as follows:
 
 ```cast storage --rpc-url $RPC $your_ethernaut_instance_here 0```

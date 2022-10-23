@@ -63,7 +63,7 @@ That's the first half of our exploit; the second half will require us to cause t
 
 Speaking of, we haven't yet implemented that!
 
-### Implementing the attacker contract's setTime() function
+## Implementing the attacker contract's setTime() function
 
 Since we know we'll be making the Preservation instance call into our attacker contract with the abi encoded signature of "setTime(uint256)" all we have to do is mimic that function, this time maliciously.
 

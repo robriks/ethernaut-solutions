@@ -7,6 +7,8 @@ This repo will walk you through a solution to PuzzleWallet.sol, the 25th challen
 
 In this challenge, Ethernaut describes a transaction-batching collective wallet contract in the form of an upgradeable proxy, using delegatecall to a separate logic implementation contract to perform multiple functions in a single call. Thrifty for gas costs, but of course we know there's a bug :)  We're instructed 'to hijack this wallet to become the admin of the proxy.'
 
+## Big-picture strategy
+
 This challenge presents us with a lengthier codebase than in previous challenges, so let's start by working backwards. Our objective is to find a security hole that lets us assume the admin role, so first we search for a function that updates the admin.
 
 ```
@@ -79,6 +81,8 @@ Just 0.001 ether standing in the way of KweenBirb's ascension to KweenAdministra
 ```require(balances[msg.sender] >= value, "Insufficient balance");```
 
 But the multicall() function just below execute() looks really juicy as it accepts a bytes[] array parameter and we know from Ethernaut's Alien Codex level that strange things can occur when you accept byte parameters; especially when there's a delegatecall in the mix!
+
+## Byte-size bugs
 
 On closer examination, we see a for loop structure that first checks for the bytes4(sha3()) function selector for this contract's deposit() method. Shit! That keeps us from calling deposit twice to reuse msg.value via delegatecall's preservation of msg.value context:
 

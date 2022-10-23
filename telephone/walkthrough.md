@@ -19,6 +19,8 @@ So what is tx.origin? Rather than push you to the Solidity lang documentation, I
 
 Its type will always be an address; more specifically an EOA due to the fact that every EVM transaction requires initiation by some EOA account. The above check therefore is basically ensuring that the originatooor of any call to the changeOwner() function is doing so through a smart contract.
 
+## It has been exploited!
+
 Here's a quick example: if an end user EOA calls changeOwner(), the tx.origin and msg.sender transaction variables will reflect that EOA. However, if that same end user were to route their function call through a smart contract that in turn calls changeOwner(), the msg.sender tx variable will be updated to the address of the proxy contract (meaning contract in the middle, not an actual proxy implementation!) and pass the check.
 
 This mechanic introduces a number of rerouting vulnerabilities and can quickly become more complicated than the developer intends with regards to authorization. A notable example of this type of exploit is the ThorChain $RUNE-$ETH liquidity pool hack of 2021, which saw a hacker exploit tx.origin in this function:

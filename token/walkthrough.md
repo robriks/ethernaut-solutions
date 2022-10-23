@@ -23,6 +23,6 @@ That's it! Once our transaction is confirmed, we've overflowed the Token instanc
 
 ```await contract.balanceOf(player)```
 
-Short and simple. Gotta love it. Always use SafeMath or Solidity version > 0.8.0!
+Short and simple. Gotta love it. Always use either SafeMath or Solidity version > 0.8.0!
 
 ○•○ h00t h00t ○•○

@@ -17,6 +17,8 @@ The selfdestruct() opcode, modified in EIP6 from the name suicide() out of respe
 
 For now, all we have to do is invoke the opcode and raise the balance of our kute lil kitty kontrakt!
 
+## Design, deploy, and destroy
+
 To do so, we simply hop over to Remix (or Foundry, if you're a Solidity fanboi like me) and write a simple smart contract with this function:
 
 ```

@@ -69,7 +69,9 @@ Keep in mind that the fallback must be payable as it will be receiving the ether
 
 That's pretty much it as far as the reentrance exploit goes. Short and sweet, huh?
 
-But wait! We forgot something. Before we can withdraw at all, we need to satisfy the balances[msg.sender] check in the withdraw() function:
+## But wait! We forgot something. 
+
+Before we can withdraw at all, we need to satisfy the balances[msg.sender] check in the withdraw() function:
 
 ```if(balances[msg.sender] >= _amount)```
 
@@ -81,6 +83,8 @@ function give() public {
     reentrance.donate{ value: amount }(to);
 }
 ```
+
+## Implement the lock and load
 
 All that's left before we execute our first reentrance hack is to specify the target and an amount of our choosing to donate and subsequently steal. There are of course many ways to do so but here's an example using an interface and convenient amount, all taken from the Solution.sol contract in this directory:
 

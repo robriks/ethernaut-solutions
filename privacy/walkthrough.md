@@ -20,6 +20,8 @@ function unlock(bytes16 _key) public {
 
 There it is! All we need is to provide as function parameter the third item in the bytes32[] array known as data. There's a twist though, that array item will have to be typecast from bytes32 to a bytes16 type. No big deal for our haxz0r skills!
 
+## Getting down to business
+
 First we'll extract the item using the bytes array index, but before we do so we should discuss a quick overview of EVM smart contract storage. All solidity types compile down to the bytes32 type as that is the building block of Ethereum data. Each bytes32 unit in storage has what we call a 'storage slot' where your variables, be it strings/uint/bool/bytes and so forth, are stored. These slots generally hold 1 variable each- except in the case of storage packing.
 
 As the name implies, storage packing is when multiple variables are packed into a single storage slot to save on gas costs and state bloat of the network. This is only possible when the size of all packed variables total 32 bytes or less!
@@ -44,6 +46,8 @@ The next variable, a public uint256, occupies an entire 32 bytes of storage! Thi
 Moving on, we see three much smaller variables in a row: flattening; denomination; awkwardness. When combined, these three variables fit into a single slot so they'll be stored in the third storage slot.
 
 That puts the beginning of the bytes32 array data at the fourth slot, implying that our desired item in the array at index 2 is stored in the 6th storage slot. Remember that indexes in Solidity begin at 0, so ```bytes32[2]``` is the third item in the array and the 6th storage slot of the contract will have index 5!
+
+## Time to act on our discovery
 
 Now that we've identified which slot to read, we can use the web3js library provided by Ethernaut to pull the data from on-chain. We're using off-chain Javascript here as Solidity's private keyword will prevent us from reading the storage slot on-chain.
 

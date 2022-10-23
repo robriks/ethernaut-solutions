@@ -7,9 +7,12 @@ This repo will walk you through a solution to GoodSamaritan.sol, the 28th and fi
 
 In this challenge, Ethernaut describes a generous philanthropist who has written a contract that dispenses tokens to any poor soul destitute enough to request some. It is of course hinted that we are 'able to drain all the balance from his Wallet.' That will be our objective.
 
-Looking over the codebase, we note a three-contract structure: 
+Looking over the codebase, we note a three-contract structure:
+
 1. a Coin contract with a very basic implementation of the token, token balances, and token transfers. This is not unlike a very simple ERC20
+
 2. a Wallet contract that handles the preset methods of using the Coin's transfer functions. It provides a way to donate10() tokens to any poor soul in need as well as a backup function that handles the edge case where the balance of tokens is lower than 10. In this case, donate10() will not suffice and transferRemainder() instead provides a way to move the rest of the tokens
+
 3. a GoodSamaritan contract that acts as both a registry and an interface for the Wallet and Coin contracts. It provides a single function requestDonation() that will call one of the two Wallet functions depending on the situation.
 
 In essence, we're presented with two layers of abstraction on top of the Coin token contract, with the GoodSamaritan on top. Because the Wallet contract holds many more tokens than 10 and our objective is to drain the Wallet entirely, the function of most interest to us in this scenario is its transferRemainder() method.

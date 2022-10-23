@@ -17,7 +17,7 @@ This time, however, the interface given for our malicious Buyer contract only ex
 
 https://eip2535diamonds.substack.com/
 
-## Anyway, so turns out view functions only block internal state alterations. Duh!
+## Anyway, so turns out view functions only block _internal_ state alterations. Duh!
 
 A view function cannot alter its contract state internally. Of that, we're sure. But that doesn't stop it from reading external changes and returning data based on those external conditions!
 

@@ -37,6 +37,8 @@ function naughtyConsent() public {
 }
 ```
 
+## Deployment and execution
+
 Since we need to provide the address of the our malicious hacker contract as a parameter to the ERC20 approve() function, we first deploy the malicious contract containing the function above. Then we grab its address and load it into Ethernaut's handy js console:
 
 ```

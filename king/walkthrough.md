@@ -11,6 +11,8 @@ In this challenge, Ethernaut describes a cute little code game of Napoleonic nat
 
 Ominous, yet inevitable. That is how all ponzi games ultimately end, after all! 👀 Looking at you, US social security 👀
 
+## Let's theorize
+
 Anyh00t, seeing as our objective is to prevent the level's Napoleonic self-proclamation of kingship at the game's conclusion, we can infer that the level will have to invoke the receive() function and become king via the following line:
 
 ```king = msg.sender;```
@@ -27,7 +29,7 @@ Let's say we were to set the storage variable king to be a malicious smart contr
 
 In this scenario, the Napoleonic ponzi would be entirely broken as the msg.value transfer to the king address would be met with a contract where there is no receive() or fallback() function explicitly marked payable. Guaranteed reversion, every time.
 
-So let's do it!
+## What are we waiting for?! Let's do it!
 
 ```
 interface King {
