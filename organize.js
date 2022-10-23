@@ -1,3 +1,5 @@
+// simple script to reorganize txt files into their respective directories
+
 const fs = require('fs/promises')
 
 // while loop that reads files with fs.readdir(), checks for endsWith('.txt), copies files to subdirs and then cleans up
