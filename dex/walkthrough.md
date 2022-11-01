@@ -1,6 +1,17 @@
 # Ethernaut Walkthrough: Dex
 ## Welcome to KweenBirb's 23rd installment of Ethernaut walkthroughs!
 
+Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
+
+This repo will walk you through a solution to Dex.sol, the 23rd challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in this directory and the .sol file in the src directory. Let's begin!
+
+OpenZeppelin instructs us 'to hack the basic DEX contract below and steal the funds by price manipulation.` They later elaborate that the goal is to 'drain all of at least 1 of the 2 tokens from the contract, and allow the contract to report a "bad" price of the assets.'
+
+Okay, wow! We're in the big leagues now huh? DeFi exploits on AMM liquidity pools! Let's get going, then.
+
+## 
+
+
 
 
 
