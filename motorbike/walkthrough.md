@@ -40,7 +40,7 @@ Where your proxyAddress would be $your_ethernaut_instance and the provider would
 
 When we run our nifty getImplementation.js script, a target address is returned to us in the console:
 
-![alt text](https://github.com/robriks/motorbike/../../../../script/result.png)
+![Script Output](https://github.com/robriks/ethernaut-solutions/blob/main/motorbike/script/result.png)
 
 ## Once we've identified the logic implementation contract address
 
