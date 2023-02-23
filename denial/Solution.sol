@@ -9,8 +9,10 @@ interface Denial {
 
 contract Attack {
 
+    Denial denial;
+
     constructor(address $your_ethernaut_instance_here) {
-        Denial denial = Denial($your_ethernaut_instance_here);
+        denial = Denial($your_ethernaut_instance_here);
     }
     
     function attack() public {
