@@ -15,7 +15,7 @@ contract Reacharound {
 
         // calculate and typecast target values
         uint arrayLengthSlot = 1;
-        uint arraySlot = keccak256(arrayLengthSlot);
+        uint arraySlot = uint(keccak256(abi.encode(arrayLengthSlot)));
         // calculate 2**256 - arraySlot + 1
         uint zeroSlot = (115792089237316195423570985008687907853269984665640564039457584007913129639935 - arraySlot) + 1;
 
