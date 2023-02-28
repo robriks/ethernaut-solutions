@@ -17,11 +17,11 @@ We simply head on over to rinkeby.etherscan.io to inspect $your_ethernaut_instan
 
 On perusing the transaction overview that created your level instance, you'll see that the Ethernaut factory transferred 0.001 eth to two addresses. That seems promising!
 
-![image](recovery.png)
+![image](./assets/recovery.png)
 
 Knowing this, let's take a closer look at the internal actions of this transaction:
 
-![image](recoveryInternal.png)
+![image](./assets/recoveryInternal.png)
 
 There we have it, two CREATE opcodes that deployed brand new contracts and then seeded them with 0.001 ether each via CALL.
 
