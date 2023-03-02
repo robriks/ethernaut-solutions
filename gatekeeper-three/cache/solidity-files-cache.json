@@ -1,0 +1,100 @@
+{
+  "_format": "ethers-rs-sol-cache-3",
+  "paths": {
+    "artifacts": "out",
+    "build_infos": "out/build-info",
+    "sources": "src",
+    "tests": "test",
+    "scripts": "script",
+    "libraries": [
+      "lib"
+    ]
+  },
+  "files": {
+    "src/GatekeeperThree.sol": {
+      "lastModificationDate": 1677565604240,
+      "contentHash": "9d27337c364f0eae5997e35e82fc844f",
+      "sourceName": "src/GatekeeperThree.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "GatekeeperThree": {
+          "0.8.15+commit.e14f2714.Linux.gcc": "GatekeeperThree.sol/GatekeeperThree.json"
+        },
+        "SimpleTrick": {
+          "0.8.15+commit.e14f2714.Linux.gcc": "GatekeeperThree.sol/SimpleTrick.json"
+        }
+      }
+    },
+    "src/Solution.sol": {
+      "lastModificationDate": 1677729007200,
+      "contentHash": "b90bedb35ce66cf4d5e5cbd1f875dc17",
+      "sourceName": "src/Solution.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "src/GatekeeperThree.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "TrixR4Kids": {
+          "0.8.15+commit.e14f2714.Linux.gcc": "Solution.sol/TrixR4Kids.json"
+        }
+      }
+    }
+  }
+}
