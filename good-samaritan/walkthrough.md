@@ -1,5 +1,5 @@
 # Ethernaut Walkthrough: Good Samaritan
-## Welcome to KweenBirb's 28th and final installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 28th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
