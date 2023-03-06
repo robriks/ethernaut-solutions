@@ -68,7 +68,8 @@ Looking at the left half of this require line, ```uint32(uint64(_gateKey))``` le
 
 Moving on to the second require() line, we see a check that informs us about the big endian half of _gateKey:
 
-```require(uint32(uint64(_gateKey)) != uint64(_gateKey), "GatekeeperOne: invalid gateThree part two");
+```
+require(uint32(uint64(_gateKey)) != uint64(_gateKey), "GatekeeperOne: invalid gateThree part two");
 ```
 
 This tells us that the uint64 value of the _gateKey must not match the little endian half of _gateKey; or more simply put: the big endian half of _gateKey cannot be 0. To satisfy this, we just add a nonzero value anywhere in the big endian half- for example:
