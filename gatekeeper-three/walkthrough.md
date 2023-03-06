@@ -1,9 +1,9 @@
 # Ethernaut Walkthrough: Gatekeeper Three
-## Welcome to KweenBirb's 27th installment of Ethernaut walkthroughs! 
+## Welcome to KweenBirb's 29th installment of Ethernaut walkthroughs! 
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to GatekeeperThree.sol, the 27th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .sol file in the ./src directory. Let's begin!
+This repo will walk you through a solution to GatekeeperThree.sol, the 29th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file in the root directory and .sol file in the ./src directory. Let's begin!
 
 In this challenge, Ethernaut instructs us, blithely: 'Cope with gates and become an entrant.' I guess once we've reached the third iteration of Gatekeeper challenges, we no longer really need a lot of instructions to get going. Love it! ;P
 
