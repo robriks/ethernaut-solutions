@@ -28,3 +28,6 @@
 [submodule "vault/lib/forge-std"]
 	path = vault/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "magic-number/lib/forge-std"]
+	path = magic-number/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
