@@ -3,7 +3,7 @@
 
 Ethernaut is a set of gamified Solidity challenges in the style of a CTF, where each level features a hackable smart contract that will inform you of various known security vulnerabilities on EVM blockchains.
 
-This repo will walk you through a solution to MagicNumber.sol, the 19th challenge in the series. You can find the challenge itself and fully fleshed out solution in the .txt file and .yul file in this directory. Let's begin!
+This repo will walk you through a solution to MagicNumber.sol, the 19th challenge in the series. You can find the challenge itself in the .txt file in the root directory and and fully fleshed out solutions in the .yul and .huff files in the ./src directory. Let's begin!
 
 In this challenge, Ethernaut describes a deceptively simple objective: deploy a Solver contract that returns the answer to a whatIsTheMeaningOfLife() function call. We all know the answer to such a laughably easy question, and yet we're given a hint:
 
@@ -80,9 +80,43 @@ object "runtime" {
 }
 ```
 
-## But our solution is not as optimized as our hand-drawn bytecode!
+## Huff Solution
 
-This is the bare minimum yul code necessary to store 0x2a (42) into memory at slot 0x40 and then return 2 bytes from slot 0x40. This should accomplish something very similar to the opcodes we decided on, but you'll notice that it doesn't compile down to exactly the same instructions we chose:
+Another EVM smart contract programming language that allows us humble web3 developers fine-grained control over low-level bytecode is the Huff programming language. 
+
+This section will detail solving this Ethernaut challenge using Huff, so if you've managed to do so using Yul feel free to come back when you feel ready to delve into Huff.
+
+Huff provides such a thin wrapper over raw EVM bytecode that we can essentially work with individual bytes! Huff handles some of the more tedious opcodes, such as push and jump instructions, so we can implement our minimal bytecode contract in just a few lines of code!
+
+Huff makes use of macros, which in our case will represent a code execution path equivalent to the Solidity fallback function. We define it like this:
+
+```
+#define macro MAIN() = takes(0) returns(0) {
+    // ...
+}
+```
+
+The ```takes()``` and ```returns()``` keywords refer to stack items, instructing the EVM to expect stack items to be added or removed in at the end of execution.
+
+Moving on to the actual opcode instructions, we push 0x2a and a memory offset to the stack and then execute an mload instruction, followed by putting a data length and offset location on the stack before our final return instruction which will return the 0x2a we originally stored in memory:
+
+```
+#define macro MAIN() = takes(0) returns(0) {
+    0x2a
+    0x40
+    mstore
+
+    0x20
+    0x40
+    return
+}
+```
+
+That's our Huff implementation of this minimal bytecode contract that returns the magic number 0x2a!
+
+## But our solutions are not as optimized as our hand-drawn bytecode!
+
+We've written the bare minimum Yul and Huff code necessary to store 0x2a (42) into memory at slot 0x40 and then return 2 bytes from slot 0x40. This accomplishes something very similar to the opcodes we decided on, but you'll notice that it doesn't compile down to exactly the same instructions we chose:
 
 ```
 "object": "600a600d600039600a6000f3fe602a60405260206040f3",
@@ -93,7 +127,7 @@ Where our runtime bytecode extracted from within that code looks like this:
 
 ```602a60405260206040f3```
 
-It's one byte more than our optimal 9 byte Solver code, but 10 bytes is enough to satisfy the Ethernaut challenge so we're good to go! Perhaps the Yul optimizer will see more improvements in the future to compile down to our handpicked opcodes.
+It's one byte more than our optimal 9 byte Solver code, but 10 bytes is enough to satisfy the Ethernaut challenge so we're good to go! Perhaps the Yul and Huff optimizers will see more improvements in the future to compile down to our handpicked opcodes.
 
 Anyway, all in all, we get the following Yul contract:
 
@@ -114,5 +148,5 @@ object "contract" {
 }
 ```
 
-A successful first foray into EVM bytecode and Yul assembly. 
+A successful first foray into EVM bytecode, Yul assembly, and Huff.
 ○•○ h00t h00t ○•○
